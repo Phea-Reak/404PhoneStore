@@ -1,0 +1,72 @@
+<head>
+
+<script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+    <div class="max-w-6xl mx-auto px-4 py-10 text-gray-800  ">
+      <h1 class="text-3xl text-black font-bold mb-5 mt-18 ">Shopping Cart</h1>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 ">
+
+        <!-- Cart Items -->
+        <div class="lg:col-span-2 bg-white rounded-xl shadow p-6  mb-10 lg:mb-5">
+          <div class="flex items-center gap-6 border-b pb-6">
+            <img
+              src="https://krstoreapi.phalla.lol/images/products/5.png"
+              alt="Iphone 17"
+              class="w-24 h-24 object-contain border rounded"
+            />
+
+            <div class="flex-1">
+              <h2 class="text-xl font-semibold">Iphone 17</h2>
+              <p class="text-sm text-gray-500">Category: Apple</p>
+              <p class="text-blue-600 font-bold mt-2">$168.00</p>
+            </div>
+
+            <!-- Quantity -->
+            <div class="flex items-center gap-3">
+              <button class="px-3 py-1 border rounded">-</button>
+              <span class="font-semibold">1</span>
+              <button class="px-3 py-1 border rounded">+</button>
+            </div>
+
+            <!-- Remove -->
+            <button class="text-red-500 hover:text-red-600 font-semibold">
+              Remove
+            </button>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="bg-white rounded-xl shadow p-6 h-fit mb-10 lg:mb-5">
+          <h2 class="text-xl font-bold mb-6">Order Summary</h2>
+
+          <div class="flex justify-between mb-4">
+            <span>Subtotal</span>
+            <span class="font-semibold">$168.00</span>
+          </div>
+
+          <div class="flex justify-between mb-4">
+            <span>Shipping</span>
+            <span class="font-semibold">$5.00</span>
+          </div>
+
+          <div class="flex justify-between border-t pt-4 mb-6">
+            <span class="font-bold">Total</span>
+            <span class="font-bold text-blue-600">$173.00</span>
+          </div>
+
+          <button
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition"
+          >
+            Proceed to Checkout
+          </button>
+
+          <a
+            routerLink="/"
+            class="block text-center mt-4 text-blue-600 hover:underline"
+          >
+            Continue Shopping
+          </a>
+        </div>
+      </div>
+    </div>

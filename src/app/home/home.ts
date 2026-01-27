@@ -1,13 +1,14 @@
 import { Component, ElementRef, ViewChild, OnInit, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // <--- Added
-import { FormsModule } from '@angular/forms';   // <--- Added for [(ngModel)]
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { ProductService } from '../services/product-service';
 import { gsap } from "gsap";
 
 @Component({
   selector: 'app-home',
-  standalone: true, // Ensure this is true if using imports array
-  imports: [CommonModule, FormsModule], // <--- IMPORTANT: Add Modules here
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -17,15 +18,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   // 1. DATA VARIABLES
   searchTerm: string = '';
-  allProducts: any[] = [];      // Stores the original full list
-  filteredProducts: any[] = []; // Stores the list currently shown on screen
+  allProducts: any[] = [];
+  filteredProducts: any[] = [];
 
   constructor(public productService: ProductService) { }
 
   ngOnInit(): void {
     // 2. LOAD DATA ON INIT
     this.allProducts = this.productService.getProducts();
-    // Initially, the filtered list is the same as the full list
     this.filteredProducts = [...this.allProducts];
   }
 
@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // 5. SCROLL LOGIC
+  // 5. SCROLL
   scrollSlider(direction: number) {
     if (this.slider) {
       const container = this.slider.nativeElement;

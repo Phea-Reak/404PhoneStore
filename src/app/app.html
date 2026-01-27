@@ -1,2 +1,153 @@
-<app-home></app-home>
-<router-outlet></router-outlet>
+<!-- app.html -->
+<div class="bg-gradient-to-b from-gray-50 to-white min-h-screen text-gray-900 selection:bg-emerald-500 selection:text-white">
+
+  <!-- Modern Header -->
+  <div class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-200/80 shadow-sm">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="h-10 w-10 bg-black from-emerald-500 rounded-xl flex items-center justify-center shadow-lg ">
+          <span class="font-black text-white text-lg">4S</span>
+        </div>
+        <span class="font-bold text-xl tracking-tight text-gray-900">404.SHOP</span>
+      </a>
+
+      <!-- Navigation -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#" class="text-gray-700 hover:text-emerald-600 font-medium transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-500 after:transition-all hover:after:w-full">Home</a>
+        <a href="#" class="text-gray-700 hover:text-emerald-600 font-medium transition-colors">Products</a>
+        <a href="#" class="text-gray-700 hover:text-emerald-600 font-medium transition-colors">Categories</a>
+        <a href="#" class="text-gray-700 hover:text-emerald-600 font-medium transition-colors">Contact</a>
+      </div>
+
+      <!-- Search & Cart -->
+      <div class="flex items-center gap-4">
+        <!-- Search -->
+        <div class="relative hidden md:block">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search products..."
+              class="w-64 pl-10 pr-4 py-2.5 bg-gray-100/80 border border-gray-300/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500 transition-all text-sm placeholder:text-gray-500"
+            >
+            <svg class="w-4 h-4 text-gray-500 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Cart -->
+        <button class="relative p-2.5 rounded-xl hover:bg-gray-100 transition-colors group" routerLink="/cart">
+          <div class="relative">
+            <svg class="w-6 h-6 text-gray-700 group-hover:text-emerald-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <span class="absolute -top-1 -right-1 h-5 w-5 bg-emerald-500 text-white text-xs font-bold rounded-full flex items-center justify-center border-2 border-white shadow">3</span>
+          </div>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden p-2 rounded-lg hover:bg-gray-100">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <!-- Modern Footer -->
+  <footer class="bg-gray-900 text-white mt-32 relative overflow-hidden">
+    <!-- Background Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+    <div class="absolute top-0 left-0 w-full h-1 bg-black from-emerald-500 via-teal-400 to-cyan-400"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+        <!-- Newsletter -->
+        <div class="lg:col-span-5">
+          <div class="mb-6">
+            <div class="h-12 w-12 bg-black from-emerald-500 rounded-xl flex items-center justify-center mb-4">
+              <span class="font-black text-white text-xl">4S</span>
+            </div>
+            <h2 class="text-2xl font-bold mb-2">Stay ahead of trends.</h2>
+            <p class="text-gray-400 mb-6">Subscribe for exclusive drops and 15% off your first order.</p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="flex-1 bg-gray-800/50 border border-gray-700 rounded-xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 placeholder:text-gray-500"
+            >
+            <button class="bg-black from-emerald-500  text-white font-semibold px-8 py-3.5 rounded-xl hover:shadow-lg  transition-all">
+              Subscribe
+            </button>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="lg:col-span-7 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="font-bold mb-4 text-gray-400 text-sm uppercase tracking-wider">Shop</h4>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">New Arrivals</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Best Sellers</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Collections</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Accessories</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold mb-4 text-gray-400 text-sm uppercase tracking-wider">Support</h4>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact Us</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">FAQs</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Shipping</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Returns</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold mb-4 text-gray-400 text-sm uppercase tracking-wider">Company</h4>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">About</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Careers</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Press</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Sustainability</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold mb-4 text-gray-400 text-sm uppercase tracking-wider">Connect</h4>
+            <div class="flex gap-3">
+              <a href="#" class="w-10 h-10 bg-gray-800/50 rounded-xl flex items-center justify-center hover:bg-emerald-500 hover:text-white transition-all">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-800/50 rounded-xl flex items-center justify-center hover:bg-emerald-500 hover:text-white transition-all">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-800/50 rounded-xl flex items-center justify-center hover:bg-emerald-500 hover:text-white transition-all">
+                <i class="fab fa-tiktok"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-sm">© 2024 404.SHOP — Redefining modern commerce.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Privacy Policy</a>
+          <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Terms of Service</a>
+          <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
