@@ -20,36 +20,51 @@ export class HomeComponent implements OnInit, AfterViewInit {
   searchTerm: string = '';
   allProducts: any[] = [];
   filteredProducts: any[] = [];
+  loading: boolean = true;
+  error: string = '';
 
   constructor(public productService: ProductService) { }
 
   ngOnInit(): void {
-    // 2. LOAD DATA ON INIT
-    this.allProducts = this.productService.getProducts();
-    this.filteredProducts = [...this.allProducts];
+    this.loading = true;
+    this.productService.getProducts().subscribe({
+      next: (products) => {
+        this.allProducts = products.map(p => ({
+          ...p,
+          name: p.title,
+          images: [p.image],
+          stock: Math.floor(Math.random() * 20) + 1,
+          status: 'active',
+          price: p.price.toString()
+        }));
+        this.filteredProducts = [...this.allProducts];
+        this.loading = false;
+        setTimeout(() => this.animateProductGrid(), 100);
+      },
+      error: (err) => {
+        console.error('Error loading products:', err);
+        this.error = 'Failed to load products';
+        this.loading = false;
+      }
+    });
   }
 
   ngAfterViewInit(): void {
-    this.animateProductGrid();
   }
 
-  // 3. SEARCH LOGIC
   filterProducts(): void {
     const term = this.searchTerm.toLowerCase();
 
     if (!term) {
-      // If search is empty, reset to full list
       this.filteredProducts = [...this.allProducts];
     } else {
-      // Filter based on Title or Category
       this.filteredProducts = this.allProducts.filter(product =>
-        product.title.toLowerCase().includes(term) ||
+        product.name.toLowerCase().includes(term) ||
         product.category.toLowerCase().includes(term)
       );
     }
   }
 
-  //  GSAP ANIMATION
   animateProductGrid(): void {
 
     gsap.from(".product-card", {
